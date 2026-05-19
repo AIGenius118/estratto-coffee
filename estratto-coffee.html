@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estratto Coffee | Italian Espresso Bar · Gastown Vancouver</title>
+  <meta name="description" content="Tiny Italian-style espresso bar in Gastown. Own-roast beans sourced directly from Colombia. Espresso, flat white, cortado, pour-over Geisha. 336 W Pender St, Vancouver." />
+  <link rel="canonical" href="https://estratto.coffee/" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Estratto Coffee | Italian Espresso Bar · Gastown Vancouver" />
+  <meta property="og:description" content="Tiny Italian-style espresso bar in Gastown. Own-roast beans sourced directly from Colombia. 4.9★ on Google." />
+  <meta property="og:url" content="https://estratto.coffee/" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1610889556528-9f7717823dea?w=1200&q=85&fit=crop" />
+  <meta property="og:locale" content="en_CA" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Estratto Coffee | Gastown Vancouver" />
+  <meta name="twitter:description" content="Tiny Italian-style espresso bar. Own-roast beans from Colombia. 336 W Pender St." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1610889556528-9f7717823dea?w=1200&q=85&fit=crop" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CafeOrCoffeeShop",
+    "name": "Estratto Coffee",
+    "description": "Tiny Italian-style espresso bar in Gastown, Vancouver. Own-roast beans sourced directly from Colombia.",
+    "url": "https://estratto.coffee/",
+    "telephone": "+1-778-668-3863",
+    "image": "https://images.unsplash.com/photo-1610889556528-9f7717823dea?w=1200&q=85&fit=crop",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "336 W Pender St",
+      "addressLocality": "Vancouver",
+      "addressRegion": "BC",
+      "postalCode": "V6B 1T1",
+      "addressCountry": "CA"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 49.283063,
+      "longitude": -123.115077
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "16:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "15:00" }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "ratingCount": "50"
+    },
+    "sameAs": [
+      "https://www.instagram.com/estrattocoffee/",
+      "https://www.instagram.com/estratto_cafe/"
+    ],
+    "servesCuisine": "Coffee"
+  }
+  </script>
+
+  <style>
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:       #F6EFE2;
+      --cream-light: #FAF7F0;
+      --espresso:    #1E0F08;
+      --brown:       #3D2314;
+      --mid-brown:   #7A4A2D;
+      --sage:        #6B7F5E;
+      --sage-light:  #E8EDE4;
+      --off-white:   #FBF9F5;
+      --warm-gray:   #8A7E72;
+      --border:      rgba(61,35,20,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream-light);
+      color: var(--espresso);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    .warm-grade {
+      filter: sepia(0.12) saturate(1.08) brightness(0.97) contrast(1.04);
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--sage);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      z-index: 10000;
+      padding: 12px 20px;
+      background: var(--espresso);
+      color: var(--cream);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: top 0.2s;
+    }
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    /* ─── CUSTOM CURSOR (fine pointer only) ─── */
+    @media (hover: hover) and (pointer: fine) {
+      body.has-custom-cursor { cursor: none; }
+    }
+    #cursor {
+      display: none;
+      position: fixed;
+      width: 10px; height: 10px;
+      background: var(--mid-brown);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.25s, height 0.25s, background 0.25s;
+      mix-blend-mode: multiply;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      #cursor { display: block; }
+    }
+    #cursor.grow { width: 36px; height: 36px; background: var(--sage); }
+
+    /* ─── GRAIN OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.4;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 56px;
+    }
+    nav.scrolled {
+      background: rgba(246,239,226,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--espresso);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 40px; list-style: none; }
+    .nav-links a {
+      font-size: 11px; font-weight: 400; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--espresso);
+      text-decoration: none; opacity: 0.6;
+      transition: opacity 0.2s;
+      position: relative;
+    }
+    .nav-links a:hover { opacity: 1; }
+    nav.scrolled .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 1px;
+      background: var(--sage);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+    nav.scrolled .nav-links a:hover::after { transform: scaleX(1); }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      width: 28px; height: 20px;
+      position: relative;
+      cursor: pointer;
+      z-index: 110;
+    }
+    .nav-toggle span {
+      display: block;
+      position: absolute; left: 0; right: 0;
+      height: 1.5px;
+      background: var(--espresso);
+      transition: transform 0.25s, opacity 0.25s, top 0.25s;
+    }
+    .nav-toggle span:nth-child(1) { top: 0; }
+    .nav-toggle span:nth-child(2) { top: 9px; }
+    .nav-toggle span:nth-child(3) { top: 18px; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) { top: 9px; transform: rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
+
+    .nav-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(246,239,226,0.98);
+      z-index: 105;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    .nav-overlay.open { display: flex; }
+    .nav-overlay a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 400;
+      color: var(--espresso);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+    .nav-overlay a:hover { color: var(--sage); }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      height: 100vh; min-height: 680px;
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+    .hero-img {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1610889556528-9f7717823dea?w=1800&q=85&fit=crop') center/cover no-repeat;
+      filter: sepia(0.12) saturate(1.08) brightness(0.97) contrast(1.04);
+      animation: heroKenBurns 20s ease-in-out infinite alternate;
+    }
+    @keyframes heroKenBurns {
+      from { transform: scale(1); }
+      to   { transform: scale(1.06); }
+    }
+    .hero-img::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(18,8,4,0.20) 0%,
+        rgba(18,8,4,0.08) 35%,
+        rgba(18,8,4,0.65) 72%,
+        rgba(18,8,4,0.92) 100%
+      );
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 56px 72px;
+      max-width: 900px;
+    }
+    .hero-eyebrow {
+      font-size: 11px; font-weight: 400; letter-spacing: 0.3em;
+      text-transform: uppercase; color: rgba(246,239,226,0.7);
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(56px, 8vw, 108px);
+      font-weight: 300; line-height: 0.92;
+      color: var(--cream); letter-spacing: -0.01em;
+    }
+    .hero-title em { font-style: italic; font-weight: 300; }
+    .hero-sub {
+      margin-top: 28px;
+      font-size: 14px; font-weight: 300; letter-spacing: 0.06em;
+      color: rgba(246,239,226,0.75); max-width: 460px;
+    }
+    .hero-cta-row {
+      margin-top: 44px;
+      display: flex; align-items: center; gap: 36px; flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 32px;
+      background: var(--cream); color: var(--espresso);
+      font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+      text-transform: uppercase; text-decoration: none;
+      border: none; transition: background 0.2s, color 0.2s;
+    }
+    .btn-primary:hover { background: var(--sage); color: var(--cream); }
+    .btn-ghost {
+      font-size: 11px; font-weight: 400; letter-spacing: 0.2em;
+      text-transform: uppercase; color: rgba(246,239,226,0.7);
+      text-decoration: none; border-bottom: 1px solid rgba(246,239,226,0.3);
+      padding-bottom: 2px; transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-ghost:hover { color: var(--cream); border-color: var(--cream); }
+    .hero-rating {
+      position: absolute; right: 56px; bottom: 72px; z-index: 2;
+      text-align: right;
+    }
+    .rating-stars { font-size: 20px; letter-spacing: 3px; color: #D4A964; }
+    .rating-label {
+      font-size: 11px; font-weight: 300; letter-spacing: 0.15em;
+      color: rgba(246,239,226,0.6); margin-top: 4px;
+    }
+
+    /* ─── MARQUEE BAND ─── */
+    .marquee-band {
+      background: var(--espresso);
+      overflow: hidden;
+      padding: 18px 0;
+      white-space: nowrap;
+    }
+    .marquee-inner {
+      display: inline-flex; gap: 0;
+      animation: marquee 28s linear infinite;
+    }
+    .marquee-inner span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px; font-weight: 400; font-style: italic;
+      letter-spacing: 0.06em; color: rgba(246,239,226,0.55);
+      padding: 0 48px;
+    }
+    .marquee-inner span.dot {
+      color: var(--sage); font-style: normal; padding: 0 8px;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ─── SECTION COMMON ─── */
+    section { position: relative; }
+    .section-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 56px;
+    }
+    .section-eyebrow {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.35em;
+      text-transform: uppercase; color: var(--sage);
+      margin-bottom: 28px;
+    }
+    .section-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 5vw, 62px);
+      font-weight: 400; line-height: 1.05;
+      color: var(--espresso);
+    }
+    .section-heading em { font-style: italic; }
+
+    /* ─── ORIGIN ─── */
+    #origin {
+      padding: 140px 0;
+      background: var(--off-white);
+    }
+    .origin-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      align-items: stretch;
+    }
+    .origin-photo {
+      position: relative;
+      overflow: hidden;
+      min-height: 560px;
+      aspect-ratio: 4 / 5;
+    }
+    .origin-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+    .origin-photo:hover img { transform: scale(1.04); }
+    .origin-photo-badge {
+      position: absolute; bottom: 32px; left: 32px;
+      background: var(--cream); padding: 16px 20px;
+    }
+    .origin-photo-badge .badge-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--espresso);
+    }
+    .origin-photo-badge .badge-sub {
+      font-size: 11px; font-weight: 300; color: var(--warm-gray);
+      letter-spacing: 0.06em; margin-top: 3px;
+    }
+    .origin-text {
+      padding: 72px 64px;
+      display: flex; flex-direction: column; justify-content: center;
+      background: var(--off-white);
+    }
+    .origin-body {
+      font-size: 16px; line-height: 1.85;
+      color: var(--brown); margin-top: 32px;
+      font-weight: 300;
+    }
+    .origin-body p + p { margin-top: 22px; }
+    .origin-body strong {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px; font-weight: 500; font-style: italic;
+      color: var(--espresso);
+    }
+    .origin-detail-row {
+      display: flex; gap: 40px; flex-wrap: wrap;
+      margin-top: 48px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .origin-detail dt {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--sage); margin-bottom: 6px;
+    }
+    .origin-detail dd {
+      font-size: 14px; font-weight: 300; color: var(--brown);
+    }
+
+    /* ─── BEANS FEATURE ─── */
+    #beans {
+      padding: 110px 0;
+      background: var(--espresso);
+    }
+    .beans-inner {
+      max-width: 1240px; margin: 0 auto; padding: 0 56px;
+      display: grid; grid-template-columns: 1fr 520px; gap: 80px;
+      align-items: center;
+    }
+    .beans-text .section-eyebrow { color: var(--sage); }
+    .beans-text .section-heading { color: var(--cream); }
+    .beans-body {
+      font-size: 15px; line-height: 1.9;
+      color: rgba(246,239,226,0.65);
+      margin-top: 28px; font-weight: 300;
+    }
+    .beans-notes {
+      margin-top: 44px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    }
+    .bean-card {
+      border: 1px solid rgba(246,239,226,0.12);
+      padding: 24px 28px;
+      transition: border-color 0.25s;
+    }
+    .bean-card:hover { border-color: rgba(107,127,94,0.6); }
+    .bean-card-label {
+      font-size: 9px; font-weight: 500; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--sage); margin-bottom: 8px;
+    }
+    .bean-card-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 400; font-style: italic;
+      color: var(--cream); margin-bottom: 10px;
+    }
+    .bean-card-notes {
+      font-size: 12px; font-weight: 300;
+      color: rgba(246,239,226,0.5); letter-spacing: 0.04em;
+      line-height: 1.7;
+    }
+    .beans-image {
+      position: relative; overflow: hidden; height: 480px;
+      aspect-ratio: 5 / 6;
+    }
+    .beans-image img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .beans-image::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(30,15,8,0.4) 0%, transparent 60%);
+      z-index: 1;
+    }
+
+    /* ─── MENU ─── */
+    #menu {
+      padding: 140px 0;
+      background: var(--cream);
+    }
+    .menu-header {
+      max-width: 1240px; margin: 0 auto; padding: 0 56px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+      align-items: end; margin-bottom: 72px;
+    }
+    .menu-intro {
+      font-size: 15px; line-height: 1.8; color: var(--brown);
+      margin-top: 24px; font-weight: 300;
+    }
+    .menu-photo {
+      height: 320px; overflow: hidden;
+      aspect-ratio: 4 / 3;
+    }
+    .menu-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+    .menu-photo:hover img { transform: scale(1.05); }
+    .menu-signature {
+      max-width: 1240px; margin: 0 auto 56px; padding: 0 56px;
+    }
+    .menu-signature-inner {
+      display: flex; align-items: center; gap: 32px;
+      padding: 32px 40px;
+      border: 1px solid var(--sage);
+      background: var(--off-white);
+    }
+    .menu-signature-badge {
+      flex-shrink: 0;
+      font-size: 9px; font-weight: 500; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--sage);
+      padding: 8px 14px;
+      border: 1px solid var(--sage);
+    }
+    .menu-signature-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px; font-weight: 400; color: var(--espresso);
+    }
+    .menu-signature-desc {
+      font-size: 13px; font-weight: 300; color: var(--warm-gray);
+      margin-top: 6px; line-height: 1.6;
+    }
+    .menu-list {
+      max-width: 1240px; margin: 0 auto; padding: 0 56px;
+    }
+    .menu-category {
+      border-top: 1px solid var(--border);
+      padding: 52px 0;
+    }
+    .menu-cat-label {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--sage); margin-bottom: 24px;
+    }
+    .menu-items { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+    .menu-item {
+      padding: 20px 24px 20px 0;
+      border-right: 1px solid var(--border);
+    }
+    .menu-item:last-child { border-right: none; }
+    .menu-item-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 400; color: var(--espresso);
+    }
+    .menu-item-desc {
+      font-size: 12px; font-weight: 300; color: var(--warm-gray);
+      margin-top: 6px; line-height: 1.6; letter-spacing: 0.02em;
+    }
+
+    /* ─── ATMOSPHERE ─── */
+    #atmosphere {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      height: 480px;
+    }
+    .atm-photo {
+      overflow: hidden; position: relative;
+    }
+    .atm-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+    .atm-photo:hover img { transform: scale(1.06); }
+    .atm-photo-label {
+      position: absolute; bottom: 20px; left: 20px;
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(246,239,226,0.7);
+      background: rgba(18,8,4,0.4); padding: 6px 12px;
+    }
+
+    /* ─── HOURS + FIND ─── */
+    #visit {
+      padding: 140px 0;
+      background: var(--off-white);
+    }
+    .visit-grid {
+      max-width: 1240px; margin: 0 auto; padding: 0 56px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+      align-items: start;
+    }
+    .open-status {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-top: 20px;
+      font-size: 12px; font-weight: 400; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--brown);
+    }
+    .open-status-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--warm-gray);
+    }
+    .open-status.is-open .open-status-dot {
+      background: var(--sage);
+      box-shadow: 0 0 0 4px rgba(107,127,94,0.25);
+    }
+    .open-status.is-open { color: var(--sage); }
+    .hours-card {
+      background: var(--cream);
+      padding: 56px 48px;
+      border: 1px solid var(--border);
+    }
+    .hours-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .hours-row:first-of-type { border-top: 1px solid var(--border); margin-top: 28px; }
+    .hours-day {
+      font-size: 13px; font-weight: 300; letter-spacing: 0.06em;
+      color: var(--brown);
+    }
+    .hours-time {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px; font-weight: 400; color: var(--espresso);
+    }
+    .hours-closed { color: var(--warm-gray); font-size: 14px; }
+    .contact-info {
+      margin-top: 36px; padding-top: 32px; border-top: 1px solid var(--border);
+    }
+    .contact-item {
+      display: flex; align-items: center; gap: 14px;
+      font-size: 13px; font-weight: 300; color: var(--brown);
+      margin-bottom: 12px; text-decoration: none;
+    }
+    .contact-item svg { flex-shrink: 0; opacity: 0.5; }
+    .map-embed {
+      width: 100%; height: 100%; min-height: 460px;
+      border: none; filter: sepia(0.18) contrast(1.05);
+    }
+
+    /* ─── PRESS ─── */
+    #press {
+      padding: 110px 0;
+      background: var(--espresso);
+      overflow: hidden;
+    }
+    .press-inner {
+      max-width: 1240px; margin: 0 auto; padding: 0 56px;
+    }
+    .press-logos {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 40px; flex-wrap: wrap;
+      margin-top: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(246,239,226,0.1);
+    }
+    .press-logo-link {
+      text-decoration: none;
+      opacity: 0.55;
+      transition: opacity 0.25s;
+    }
+    .press-logo-link:hover { opacity: 0.95; }
+    .press-logo-link svg {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+    .press-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+      margin-top: 40px;
+    }
+    .press-card {
+      background: rgba(246,239,226,0.04);
+      padding: 44px 36px;
+      border: 1px solid rgba(246,239,226,0.08);
+      transition: background 0.25s;
+      text-decoration: none;
+      display: block;
+    }
+    .press-card:hover { background: rgba(246,239,226,0.08); }
+    .press-source {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--sage); margin-bottom: 20px;
+    }
+    .press-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 400; font-style: italic;
+      color: var(--cream); line-height: 1.5;
+    }
+
+    /* ─── INSTAGRAM ─── */
+    #instagram {
+      padding: 120px 0;
+      background: var(--cream);
+      text-align: center;
+    }
+    .insta-inner {
+      max-width: 960px; margin: 0 auto; padding: 0 56px;
+    }
+    .insta-handle {
+      font-size: 11px; font-weight: 400; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--sage); margin-bottom: 20px;
+    }
+    .insta-handles-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px 20px; flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .insta-handles-row a {
+      font-size: 12px; font-weight: 400; letter-spacing: 0.1em;
+      color: var(--mid-brown); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .insta-handles-row a:hover { color: var(--sage); }
+    .insta-handles-row .sep { color: var(--warm-gray); opacity: 0.5; }
+    .insta-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px,5vw,54px);
+      font-weight: 400; line-height: 1.1; color: var(--espresso);
+    }
+    .insta-heading em { font-style: italic; }
+    .insta-body {
+      font-size: 14px; font-weight: 300; color: var(--warm-gray);
+      margin-top: 20px; line-height: 1.75;
+      max-width: 520px; margin-left: auto; margin-right: auto;
+    }
+    .insta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-top: 48px;
+    }
+    .insta-tile {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+      display: block;
+    }
+    .insta-tile img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .insta-tile:hover img { transform: scale(1.08); }
+    .insta-tile::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(30,15,8,0);
+      transition: background 0.3s;
+    }
+    .insta-tile:hover::after { background: rgba(30,15,8,0.15); }
+    .insta-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-top: 40px;
+      padding: 15px 36px;
+      background: var(--espresso); color: var(--cream);
+      font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+      text-transform: uppercase; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .insta-link:hover { background: var(--sage); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--espresso);
+      padding: 64px 56px 40px;
+    }
+    .footer-inner {
+      max-width: 1240px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 64px;
+      padding-bottom: 48px; border-bottom: 1px solid rgba(246,239,226,0.1);
+    }
+    .footer-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px; font-weight: 400; color: var(--cream);
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .footer-tagline {
+      font-size: 12px; font-weight: 300; color: rgba(246,239,226,0.4);
+      margin-top: 10px; letter-spacing: 0.04em; line-height: 1.7;
+    }
+    .footer-col-label {
+      font-size: 9px; font-weight: 500; letter-spacing: 0.35em;
+      text-transform: uppercase; color: var(--sage); margin-bottom: 20px;
+    }
+    .footer-col p, .footer-col a {
+      font-size: 13px; font-weight: 300; color: rgba(246,239,226,0.55);
+      line-height: 1.8; text-decoration: none; display: block;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--cream); }
+    .footer-bottom {
+      max-width: 1240px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 28px;
+    }
+    .footer-copy {
+      font-size: 11px; font-weight: 300;
+      color: rgba(246,239,226,0.25); letter-spacing: 0.06em;
+    }
+    .footer-socials { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-socials a {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.2em;
+      text-transform: uppercase; color: rgba(246,239,226,0.35);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .footer-socials a:hover { color: var(--cream); }
+
+    /* ─── ANIMATIONS ─── */
+    .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.22s; }
+    .reveal-delay-3 { transition-delay: 0.34s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .hero-img { animation: none; }
+      .marquee-inner { animation: none; }
+      .reveal { transition: opacity 0.3s ease; transform: none; }
+      .origin-photo img,
+      .menu-photo img,
+      .atm-photo img,
+      .insta-tile img { transition: none; }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 20px 28px; }
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .section-inner, .beans-inner, .menu-header, .menu-list,
+      .menu-signature, .press-inner, .visit-grid, .footer-inner, footer,
+      .insta-inner { padding-left: 28px; padding-right: 28px; }
+      .hero-content { padding: 0 28px 56px; }
+      .hero-rating { right: 28px; bottom: 56px; }
+      #origin, #menu, #visit { padding: 96px 0; }
+      .origin-grid, .beans-inner, .menu-header, .visit-grid,
+      .footer-inner { grid-template-columns: 1fr; }
+      .menu-items { grid-template-columns: 1fr 1fr; }
+      .menu-signature-inner { flex-direction: column; align-items: flex-start; }
+      .press-grid { grid-template-columns: 1fr; }
+      .press-logos { justify-content: center; }
+      .insta-grid { grid-template-columns: repeat(2, 1fr); }
+      #atmosphere { grid-template-columns: 1fr; height: auto; }
+      .atm-photo { height: 260px; }
+      .origin-text { padding: 48px 28px; }
+      .origin-photo { min-height: 360px; }
+      .beans-image { height: 300px; }
+      .hours-card { padding: 40px 28px; }
+      .map-embed { min-height: 320px; }
+      footer { padding: 48px 0 32px; }
+      .footer-bottom { padding: 0 28px; flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <div id="cursor"></div>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <a href="#hero" class="nav-logo">Estratto</a>
+    <ul class="nav-links">
+      <li><a href="#origin">Our Story</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#visit">Visit</a></li>
+      <li><a href="#instagram">Instagram</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-overlay" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-overlay" id="nav-overlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <a href="#origin">Our Story</a>
+    <a href="#menu">Menu</a>
+    <a href="#visit">Visit</a>
+    <a href="#instagram">Instagram</a>
+  </div>
+
+  <main id="main-content">
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-img" role="img" aria-label="Close-up of espresso being pulled at Estratto Coffee"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Opened May 2025 · Gastown · 336 W Pender St</p>
+      <h1 class="hero-title">
+        Tiny bar.<br/>
+        <em>Serious coffee.</em>
+      </h1>
+      <p class="hero-sub">Italian-style espresso roasted from the source — single-origin beans brought directly from Colombia, pulled fresh every morning in Gastown.</p>
+      <div class="hero-cta-row">
+        <a href="#menu" class="btn-primary">Explore the Menu</a>
+        <a href="#visit" class="btn-ghost">Hours &amp; Location</a>
+      </div>
+    </div>
+    <div class="hero-rating" aria-label="4.9 out of 5 stars on Google Reviews">
+      <div class="rating-stars" aria-hidden="true">★★★★★</div>
+      <div class="rating-label">4.9 stars · Google Reviews</div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-band" aria-hidden="true">
+    <div class="marquee-inner">
+      <span>Espresso</span><span class="dot">·</span>
+      <span>Flat White</span><span class="dot">·</span>
+      <span>Cortado</span><span class="dot">·</span>
+      <span>Pour-Over Geisha</span><span class="dot">·</span>
+      <span>Own-Roast Beans</span><span class="dot">·</span>
+      <span>Pistachio Croissant</span><span class="dot">·</span>
+      <span>Direct from Colombia</span><span class="dot">·</span>
+      <span>La Marzocco</span><span class="dot">·</span>
+      <span>Espresso</span><span class="dot">·</span>
+      <span>Flat White</span><span class="dot">·</span>
+      <span>Cortado</span><span class="dot">·</span>
+      <span>Pour-Over Geisha</span><span class="dot">·</span>
+      <span>Own-Roast Beans</span><span class="dot">·</span>
+      <span>Pistachio Croissant</span><span class="dot">·</span>
+      <span>Direct from Colombia</span><span class="dot">·</span>
+      <span>La Marzocco</span><span class="dot">·</span>
+    </div>
+  </div>
+
+  <!-- ORIGIN -->
+  <section id="origin">
+    <div class="origin-grid">
+      <div class="origin-photo reveal">
+        <img
+          class="warm-grade"
+          src="https://images.unsplash.com/photo-1511920170033-c19a80bbd3ed?w=900&q=85&fit=crop"
+          alt="Barista preparing espresso at Estratto Coffee"
+          width="900"
+          height="1125"
+          loading="lazy"
+        />
+        <div class="origin-photo-badge">
+          <div class="badge-title">Simone Bettini</div>
+          <div class="badge-sub">Owner &amp; Head Barista</div>
+        </div>
+      </div>
+      <div class="origin-text">
+        <p class="section-eyebrow reveal">Our Story</p>
+        <h2 class="section-heading reveal reveal-delay-1">
+          From a farm in<br/><em>Nariño, Colombia</em><br/>to your cup.
+        </h2>
+        <div class="origin-body reveal reveal-delay-2">
+          <p>Estratto began as a simple conviction: great espresso starts long before the machine. Owner Simone Bettini sources green coffee directly from a small farm in the Nariño highlands of Colombia — a region where volcanic soil and high altitude create conditions for extraordinary beans.</p>
+          <p>We roast in small batches, right here in Vancouver. Nothing is ordered from a warehouse. Every bag has a story. Every cup has a terroir.</p>
+          <p><strong>"A cozy, intimate space that feels more like a living room than a café."</strong></p>
+        </div>
+        <dl class="origin-detail-row reveal reveal-delay-3">
+          <div class="origin-detail">
+            <dt>Machine</dt>
+            <dd>La Marzocco Linea Mini</dd>
+          </div>
+          <div class="origin-detail">
+            <dt>Grinder</dt>
+            <dd>Mazzer Philos Single-Dose</dd>
+          </div>
+          <div class="origin-detail">
+            <dt>Roaster</dt>
+            <dd>In-house, small batch</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEANS -->
+  <section id="beans">
+    <div class="beans-inner">
+      <div class="beans-text">
+        <p class="section-eyebrow reveal">The Beans</p>
+        <h2 class="section-heading reveal reveal-delay-1">
+          Two coffees.<br/><em>One origin.</em>
+        </h2>
+        <p class="beans-body reveal reveal-delay-2">
+          The menu changes with the harvest, but the relationship stays the same. We work directly with farmers who share our obsession with quality — no middlemen, no guesswork.
+        </p>
+        <div class="beans-notes reveal reveal-delay-3">
+          <div class="bean-card">
+            <div class="bean-card-label">Espresso Program</div>
+            <div class="bean-card-name">L'Espresso</div>
+            <div class="bean-card-notes">
+              Washed Nariño, Colombia<br/>
+              Cacao · Plum · Dark Chocolate
+            </div>
+          </div>
+          <div class="bean-card">
+            <div class="bean-card-label">Pour-Over</div>
+            <div class="bean-card-name">Alto San Juan</div>
+            <div class="bean-card-notes">
+              Natural Colombian Geisha<br/>
+              Passion Fruit · Red Fruits · Tamarind · Caramel
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="beans-image reveal reveal-delay-1">
+        <img
+          class="warm-grade"
+          src="https://images.unsplash.com/photo-1559056199-641a7a593b1c?w=800&q=85&fit=crop"
+          alt="Macro of roasted Colombian coffee beans"
+          width="800"
+          height="960"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu">
+    <div class="menu-header">
+      <div>
+        <p class="section-eyebrow reveal">The Menu</p>
+        <h2 class="section-heading reveal reveal-delay-1">Tight. Intentional.<br/><em>Nothing extra.</em></h2>
+        <p class="menu-intro reveal reveal-delay-2">
+          Handwritten on a mirror beside the counter. A menu that trusts the coffee — nothing superfluous, nothing hidden.
+        </p>
+      </div>
+      <div class="menu-photo reveal">
+        <img
+          class="warm-grade"
+          src="https://images.unsplash.com/photo-1572442388796-11668c1877df?w=800&q=85&fit=crop"
+          alt="Flat white with latte art — Estratto Coffee"
+          width="800"
+          height="600"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <div class="menu-signature reveal">
+      <div class="menu-signature-inner">
+        <span class="menu-signature-badge">Guest Favourite</span>
+        <div>
+          <div class="menu-signature-name">Pistachio Croissant</div>
+          <p class="menu-signature-desc">Buttery layers, rich pistachio cream — the pastry that keeps our regulars coming back. Pair it with a cortado.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-list">
+      <div class="menu-category reveal">
+        <div class="menu-cat-label">Espresso &amp; Milk</div>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div class="menu-item-name">Espresso</div>
+            <div class="menu-item-desc">L'Espresso — washed Nariño. Pulled short, served true.</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Flat White</div>
+            <div class="menu-item-desc">Double ristretto, microfoam. Creamy yet bold.</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Cortado</div>
+            <div class="menu-item-desc">Equal parts espresso and steamed milk. Balanced, strong, unfussy.</div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-category reveal">
+        <div class="menu-cat-label">Pour-Over</div>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div class="menu-item-name">Geisha</div>
+            <div class="menu-item-desc">Alto San Juan — natural process. Rotating single-origin selections.</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Pour-Over</div>
+            <div class="menu-item-desc">Seasonal rotation of single-origin beans, brewed to order.</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Decaf</div>
+            <div class="menu-item-desc">Because great coffee shouldn't come with conditions.</div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-category reveal">
+        <div class="menu-cat-label">Small Bites</div>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div class="menu-item-name">Pistachio Croissant</div>
+            <div class="menu-item-desc">Buttery layers filled with rich pistachio cream. Our most requested item.</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Seasonal Pastry</div>
+            <div class="menu-item-desc">Rotating baked goods from the display case — ask what's in today.</div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-name">Beans to Go</div>
+            <div class="menu-item-desc">Take the roastery home. Our beans, ground for how you brew.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATMOSPHERE STRIP -->
+  <div id="atmosphere">
+    <div class="atm-photo">
+      <img
+        class="warm-grade"
+        src="https://images.unsplash.com/photo-1585082293-ca78c33a7459?w=700&q=85&fit=crop"
+        alt="Extreme close-up of espresso being extracted"
+        width="700"
+        height="480"
+        loading="lazy"
+      />
+      <div class="atm-photo-label">The Pull</div>
+    </div>
+    <div class="atm-photo">
+      <img
+        class="warm-grade"
+        src="https://images.unsplash.com/photo-1514431524702-55889843a6ca?w=700&q=85&fit=crop"
+        alt="Steam rising from freshly brewed coffee"
+        width="700"
+        height="480"
+        loading="lazy"
+      />
+      <div class="atm-photo-label">Steam &amp; Warmth</div>
+    </div>
+    <div class="atm-photo">
+      <img
+        class="warm-grade"
+        src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=700&q=85&fit=crop"
+        alt="Delicate latte art in a ceramic cup"
+        width="700"
+        height="480"
+        loading="lazy"
+      />
+      <div class="atm-photo-label">Latte Art</div>
+    </div>
+  </div>
+
+  <!-- VISIT -->
+  <section id="visit">
+    <div class="visit-grid">
+      <div>
+        <p class="section-eyebrow reveal">Find Us</p>
+        <h2 class="section-heading reveal reveal-delay-1">
+          336 W Pender St<br/><em>Gastown, Vancouver</em>
+        </h2>
+        <p class="open-status reveal reveal-delay-1" id="open-status" aria-live="polite">
+          <span class="open-status-dot" aria-hidden="true"></span>
+          <span id="open-status-text">Checking hours…</span>
+        </p>
+        <div class="hours-card reveal reveal-delay-2">
+          <p class="section-eyebrow" style="margin-bottom:0">Hours</p>
+          <div class="hours-row">
+            <span class="hours-day">Monday — Friday</span>
+            <span class="hours-time">8 AM – 4 PM</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Saturday</span>
+            <span class="hours-time">9 AM – 3 PM</span>
+          </div>
+          <div class="hours-row">
+            <span class="hours-day">Sunday</span>
+            <span class="hours-closed">Closed</span>
+          </div>
+          <div class="contact-info">
+            <a href="tel:7786683863" class="contact-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.81 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+              778-668-3863
+            </a>
+            <a href="https://www.instagram.com/estrattocoffee" target="_blank" rel="noopener me" class="contact-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              @estrattocoffee
+            </a>
+            <a href="https://www.instagram.com/estratto_cafe" target="_blank" rel="noopener me" class="contact-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              @estratto_cafe
+            </a>
+            <p class="contact-item" style="cursor:default">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              336 W Pender St, Vancouver BC V6B 1T1
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <iframe
+          class="map-embed"
+          title="Estratto Coffee location map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2603.0234321752753!2d-123.11507738430017!3d49.28306307933223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x548671814a86f069%3A0x2e96e47b77c50f5a!2s336%20W%20Pender%20St%2C%20Vancouver%2C%20BC%20V6B%201T1!5e0!3m2!1sen!2sca!4v1716580000000!5m2!1sen!2sca"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESS -->
+  <section id="press">
+    <div class="press-inner">
+      <p class="section-eyebrow reveal" style="color:var(--sage)">As Seen In</p>
+      <h2 class="section-heading reveal reveal-delay-1" style="color:var(--cream)">
+        The word is out<br/><em>already.</em>
+      </h2>
+
+      <div class="press-logos reveal reveal-delay-2">
+        <a href="https://nomsmagazine.com/estratto-coffee-reopens-downtown-vancouver/" target="_blank" rel="noopener" class="press-logo-link" aria-label="Noms Magazine">
+          <svg viewBox="0 0 180 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <text x="0" y="24" font-family="Georgia, serif" font-size="22" font-weight="400" fill="#F6EFE2" letter-spacing="0.02em">Noms</text>
+            <text x="72" y="24" font-family="Inter, sans-serif" font-size="11" font-weight="300" fill="#F6EFE2" opacity="0.6" letter-spacing="0.2em">MAGAZINE</text>
+          </svg>
+        </a>
+        <a href="https://www.vancouverisawesome.com/food-and-drink/tiny-vancouver-coffee-shop-estratto-relocating-new-cafe-space-2025-10506924" target="_blank" rel="noopener" class="press-logo-link" aria-label="Vancouver Is Awesome">
+          <svg viewBox="0 0 220 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <text x="0" y="24" font-family="Inter, sans-serif" font-size="18" font-weight="500" fill="#F6EFE2" letter-spacing="0.04em">Vancouver Is Awesome</text>
+          </svg>
+        </a>
+        <a href="https://atlantacoffeeshops.squarespace.com/estratto-coffee-vancouver-canada" target="_blank" rel="noopener" class="press-logo-link" aria-label="Atlanta Coffee Shops">
+          <svg viewBox="0 0 200 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <text x="0" y="24" font-family="Georgia, serif" font-size="20" font-style="italic" fill="#F6EFE2">Atlanta Coffee Shops</text>
+          </svg>
+        </a>
+      </div>
+
+      <div class="press-grid">
+        <a href="https://nomsmagazine.com/estratto-coffee-reopens-downtown-vancouver/" target="_blank" rel="noopener" class="press-card reveal">
+          <div class="press-source">Noms Magazine</div>
+          <div class="press-quote">"Estratto's new home is compact but loaded with warmth and caffeine — it feels more like a living room than a café."</div>
+        </a>
+        <a href="https://www.vancouverisawesome.com/food-and-drink/tiny-vancouver-coffee-shop-estratto-relocating-new-cafe-space-2025-10506924" target="_blank" rel="noopener" class="press-card reveal reveal-delay-1">
+          <div class="press-source">Vancouver Is Awesome</div>
+          <div class="press-quote">"Outfitted with playful and vintage decor — a coffee shop that's as charming as its espresso is precise."</div>
+        </a>
+        <a href="https://atlantacoffeeshops.squarespace.com/estratto-coffee-vancouver-canada" target="_blank" rel="noopener" class="press-card reveal reveal-delay-2">
+          <div class="press-source">Atlanta Coffee Shops</div>
+          <div class="press-quote">"A cozy and intimate specialty coffee shop in the heart of Gastown, with a tight espresso menu and a Colombian Geisha pour-over worth seeking out."</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section id="instagram">
+    <div class="insta-inner">
+      <p class="insta-handle reveal">Follow Along</p>
+      <h2 class="insta-heading reveal reveal-delay-1">
+        See what's brewing<br/><em>this week.</em>
+      </h2>
+      <p class="insta-body reveal reveal-delay-2">
+        Rotating coffees, seasonal pastries, glimpses behind the counter. The bar is small — Instagram is where the story keeps going.
+      </p>
+      <div class="insta-handles-row reveal reveal-delay-2">
+        <a href="https://www.instagram.com/estrattocoffee/" target="_blank" rel="noopener me">@estrattocoffee</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="https://www.instagram.com/estratto_cafe/" target="_blank" rel="noopener me">@estratto_cafe</a>
+      </div>
+
+      <div class="insta-grid reveal reveal-delay-3">
+        <a href="https://www.instagram.com/estrattocoffee/" target="_blank" rel="noopener" class="insta-tile" aria-label="View on Instagram">
+          <img class="warm-grade" src="https://images.unsplash.com/photo-1610889556528-9f7717823dea?w=600&q=80&fit=crop" alt="" width="600" height="600" loading="lazy" />
+        </a>
+        <a href="https://www.instagram.com/estrattocoffee/" target="_blank" rel="noopener" class="insta-tile" aria-label="View on Instagram">
+          <img class="warm-grade" src="https://images.unsplash.com/photo-1572442388796-11668c1877df?w=600&q=80&fit=crop" alt="" width="600" height="600" loading="lazy" />
+        </a>
+        <a href="https://www.instagram.com/estrattocoffee/" target="_blank" rel="noopener" class="insta-tile" aria-label="View on Instagram">
+          <img class="warm-grade" src="https://images.unsplash.com/photo-1559056199-641a7a593b1c?w=600&q=80&fit=crop" alt="" width="600" height="600" loading="lazy" />
+        </a>
+        <a href="https://www.instagram.com/estratto_cafe/" target="_blank" rel="noopener" class="insta-tile" aria-label="View on Instagram">
+          <img class="warm-grade" src="https://images.unsplash.com/photo-1585082293-ca78c33a7459?w=600&q=80&fit=crop" alt="" width="600" height="600" loading="lazy" />
+        </a>
+        <a href="https://www.instagram.com/estratto_cafe/" target="_blank" rel="noopener" class="insta-tile" aria-label="View on Instagram">
+          <img class="warm-grade" src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&q=80&fit=crop" alt="" width="600" height="600" loading="lazy" />
+        </a>
+        <a href="https://www.instagram.com/estratto_cafe/" target="_blank" rel="noopener" class="insta-tile" aria-label="View on Instagram">
+          <img class="warm-grade" src="https://images.unsplash.com/photo-1511920170033-c19a80bbd3ed?w=600&q=80&fit=crop" alt="" width="600" height="600" loading="lazy" />
+        </a>
+      </div>
+
+      <a
+        href="https://www.instagram.com/estrattocoffee/"
+        target="_blank" rel="noopener me"
+        class="insta-link reveal reveal-delay-3"
+      >
+        Follow @estrattocoffee
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">Estratto</div>
+        <div class="footer-tagline">
+          A tiny Italian-style espresso bar in Gastown.<br/>
+          Own-roast beans, sourced directly from Colombia.<br/>
+          4.9 ★ on Google.
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">Visit</div>
+        <p>336 W Pender Street</p>
+        <p>Vancouver, BC V6B 1T1</p>
+        <a href="tel:7786683863">778-668-3863</a>
+        <p style="margin-top:16px; font-size:12px; color:rgba(246,239,226,0.3)">In the Victorian Hotel building.<br/>Neighbours: Locanda dell'Orso · The Paper Hound</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">Hours</div>
+        <p>Mon – Fri &nbsp;&nbsp; 8 AM – 4 PM</p>
+        <p>Saturday &nbsp;&nbsp;&nbsp; 9 AM – 3 PM</p>
+        <p>Sunday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Closed</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Estratto Coffee · Gastown, Vancouver</p>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/estrattocoffee/" target="_blank" rel="noopener me">@estrattocoffee</a>
+        <a href="https://www.instagram.com/estratto_cafe/" target="_blank" rel="noopener me">@estratto_cafe</a>
+        <a href="https://www.google.com/maps/place/336+W+Pender+St" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ─── CUSTOM CURSOR ───
+    const cur = document.getElementById('cursor');
+    const prefersFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (prefersFinePointer) {
+      document.body.classList.add('has-custom-cursor');
+      document.addEventListener('mousemove', e => {
+        cur.style.left = e.clientX + 'px';
+        cur.style.top  = e.clientY + 'px';
+      });
+      document.querySelectorAll('a, button').forEach(el => {
+        el.addEventListener('mouseenter', () => cur.classList.add('grow'));
+        el.addEventListener('mouseleave', () => cur.classList.remove('grow'));
+      });
+    }
+
+    // ─── NAV SCROLL ───
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ─── MOBILE NAV ───
+    const navToggle = document.getElementById('nav-toggle');
+    const navOverlay = document.getElementById('nav-overlay');
+    const overlayLinks = navOverlay.querySelectorAll('a');
+
+    function closeNav() {
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Open menu');
+      navOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function openNav() {
+      navToggle.setAttribute('aria-expanded', 'true');
+      navToggle.setAttribute('aria-label', 'Close menu');
+      navOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      overlayLinks[0].focus();
+    }
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+      isOpen ? closeNav() : openNav();
+    });
+
+    overlayLinks.forEach(link => link.addEventListener('click', closeNav));
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
+        closeNav();
+        navToggle.focus();
+      }
+    });
+
+    // ─── OPEN NOW STATUS ───
+    function updateOpenStatus() {
+      const el = document.getElementById('open-status');
+      const text = document.getElementById('open-status-text');
+      const vancouver = new Date(
+        new Date().toLocaleString('en-US', { timeZone: 'America/Vancouver' })
+      );
+      const day = vancouver.getDay();
+      const mins = vancouver.getHours() * 60 + vancouver.getMinutes();
+
+      let open = false;
+      if (day >= 1 && day <= 5 && mins >= 480 && mins < 960) open = true;
+      if (day === 6 && mins >= 540 && mins < 900) open = true;
+
+      el.classList.toggle('is-open', open);
+      text.textContent = open ? 'Open now' : 'Closed now';
+    }
+    updateOpenStatus();
+
+    // ─── SCROLL REVEAL ───
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      }),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
